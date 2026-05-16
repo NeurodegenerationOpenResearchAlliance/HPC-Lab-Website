@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPC Lab | Documentation</title>
+    <style>
+        :root {
+            --paper: #ffffff;
+            --ink: #222222;
+            --muted-ink: #666666;
+            --rule: #dddddd;
+            --accent: #0044cc; /* Classic technical blue */
+            --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #fcfcfc;
+            color: var(--ink);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--paper);
+            padding: 60px;
+            border: 1px solid var(--rule);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        header {
+            border-bottom: 3px solid var(--ink);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        .lab-name {
+            font-family: var(--font-mono);
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-top: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+        }
+
+        nav a {
+            color: var(--muted-ink);
+            text-decoration: none;
+            margin-right: 25px;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        /* Project Tiles */
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--muted-ink);
+        }
+
+        .tile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .tile {
+            padding: 20px;
+            border: 1px solid var(--rule);
+            background: #f9f9f9;
+        }
+
+        .tile h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+
+        .tile p {
+            font-size: 0.9rem;
+            color: var(--muted-ink);
+        }
+
+        /* Build Log Table */
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .log-row {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .log-row td {
+            padding: 12px 0;
+        }
+
+        .log-date {
+            font-family: var(--font-mono);
+            color: var(--muted-ink);
+            width: 120px;
+        }
+
+        .log-link {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .log-link:hover { color: var(--accent); text-decoration: underline; }
+
+        footer {
+            margin-top: 60px;
+            font-size: 0.8rem;
+            color: var(--muted-ink);
+            font-family: var(--font-mono);
+            border-top: 1px solid var(--rule);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .wrapper { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <nav>
+        <a href="#workloads">Clusters</a>
+        <a href="log.html">Build Log</a>
+        <!--<a href="inventory.html">Inventory</a>-->
+    </nav>
+
+    <header>
+        <span class="lab-name">[i really oughta name this something more specific, even though googling doesn't turn up anything with this name] High-Performance Computing Laboratory</span>
+        <h1>The HPC Lab</h1>
+        <p style="margin-top: 15px; color: var(--muted-ink); font-size: 1.1rem;">
+            An independent environment for learning performance engineering on distributed infrastructure. 
+        </p>
+    </header>
+
+    <h2 class="section-title">Infrastructure</h2>
+    <div id="workloads" class="tile-grid">
+        <div class="tile">
+            <h3>Oganesson</h3>
+            <p>GPU cluster for benchmarking distributed accelerator workloads: two GPUs per node, two nodes, knit together with high-performance (100Gbe) networking hardware.</p>
+        </div>
+        <div class="tile">
+            <h3>Polychoron</h3>
+            <p>Because it's cool: Five-node CPU cluster arranged in a Pentatope (4-simplex) switchless network interconnect for studying data-backend distributed systems in the context of hyperdimensional network topology.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Current Projects</h2>
+    <div id="workloads" class="tile-grid">
+        <div class="tile">
+            <h3>Computational Pharmacology Research</h3>
+            <p>Computational development of novel therapeutics for the treatment of Parkinson's disease.</p>
+        </div>
+        <div class="tile">
+            <h3>Benchmarking</h3>
+            <p>How far can we go in terms of avoiding the use of Oganesson's CPU cores?</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Build Log Archive</h2>
+    <table class="log-table">
+        <tr class="log-row">
+            <td class="log-date">[needs to add date]</td>
+            <td><a href="log.html#bifurcation" class="log-link">Humble Beginnings: GPU cluster hardware selection</a></td>
+        </tr>
+        <tr class="log-row">
+            <td class="log-date">[needs to add date]</td>
+            <td><a href="log.html#thermal" class="log-link"></a>[in progress] Networking: Benchmarking Infiniband with second-rail Ethernet coordination</td>
+        </tr>
+        <tr class="log-row">
+            <td class="log-date">[needs to add date]</td>
+            <td><a href="log.html#debian" class="log-link">Hello World: UCSF Chimera-X, OS selection, and UEFI</a></td>
+        </tr>
+    </table>
+
+    <footer>
+        California, USA // Independent Systems Research // Powered by like ludicrous amounts of lao gan ma spicy chili crisp
+    </footer>
+</div>
+
+</body>
+</html>
