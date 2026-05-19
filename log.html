@@ -2,188 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HPC Lab | Build Log</title>
-    <style>
-        :root {
-            --paper: #ffffff;
-            --ink: #222222;
-            --muted: #666666;
-            --rule: #dddddd;
-            --accent: #0044cc;
-            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background: #fcfcfc;
-            color: var(--ink);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-
-        .wrapper {
-            max-width: 850px;
-            margin: 0 auto;
-            background: var(--paper);
-            padding: 60px;
-            border: 1px solid var(--rule);
-        }
-
-        nav {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--rule);
-            padding-bottom: 10px;
-        }
-
-        nav a { color: var(--accent); text-decoration: none; }
-
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Archive List View */
-        #log-list { display: flex; flex-direction: column; }
-        
-        .log-entry { 
-            display: grid;
-            grid-template-columns: 1fr auto;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--rule);
-            cursor: pointer;
-            transition: padding-left 0.2s ease;
-        }
-
-        .log-entry:hover { 
-            padding-left: 10px;
-            color: var(--accent);
-        }
-
-        .file-name { 
-            font-family: var(--font-sans); 
-            font-weight: 600;
-            text-transform: capitalize;
-        }
-
-        .file-ext {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--muted);
-        }
-
-        /* Post Content View */
-        #post-content { display: none; }
-        
-        .back-btn { 
-            display: inline-block; 
-            margin-bottom: 30px; 
-            cursor: pointer; 
-            color: var(--accent); 
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-        }
-        .back-btn:hover { text-decoration: underline; }
-
-        pre { 
-            white-space: pre-wrap; 
-            font-family: var(--font-mono); 
-            font-size: 0.95rem; 
-            line-height: 1.7;
-            background: #f9f9f9;
-            padding: 30px;
-            border: 1px solid var(--rule);
-        }
-
-        footer {
-            margin-top: 40px;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--muted);
-        }
-    </style>
+    <link rel="stylesheet" href="log-style.css">
 </head>
 <body>
-
 <div class="wrapper">
     <nav><a href="index.html">RETURN TO INDEX</a> // BUILD_LOG</nav>
-    
     <div id="log-list">
         <h1>Engineering Logs</h1>
-        <!-- Files will be injected here -->
+        <div class="tile-grid">
+            
+            <div class="tile">
+                <h3>2026 05 10_Hardware Selection</h3>
+                <p>Build log entry for 2026 05 10_Hardware Selection.</p>
+                <a href="articles/2026-05-10_hardware-selection.html">Read Entry</a>
+            </div>
+            <div class="tile">
+                <h3>2026 05 15_Chimera X Debian Setup</h3>
+                <p>Build log entry for 2026 05 15_Chimera X Debian Setup.</p>
+                <a href="articles/2026-05-15_chimera-x-debian-setup.html">Read Entry</a>
+            </div>
+            <div class="tile">
+                <h3>2026 05 19_Networking Benchmarks</h3>
+                <p>Build log entry for 2026 05 19_Networking Benchmarks.</p>
+                <a href="articles/2026-05-19_networking-benchmarks.html">Read Entry</a>
+            </div>
+        </div>
     </div>
-
-    <div id="post-content">
-        <div class="back-btn" onclick="showList()">&larr; BACK TO ARCHIVE</div>
-        <pre id="text-target"></pre>
-    </div>
-
-    <footer>
-        LOG_RESOURCES_INTERNAL // VERSION_1.0
-    </footer>
+    <footer>LOG_RESOURCES_INTERNAL // VERSION_1.0</footer>
 </div>
-
-<script>
-    async function scanDirectory() {
-        try {
-            const response = await fetch('posts/');
-            const html = await response.text();
-            
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const links = Array.from(doc.querySelectorAll('a'));
-            
-            const list = document.getElementById('log-list');
-
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href.endsWith('.txt')) {
-                    const entry = document.createElement('div');
-                    entry.className = 'log-entry';
-                    
-                    // Clean up filename for display
-                    const title = href.replace('.txt', '').replace(/[-_]/g, ' ');
-                    
-                    entry.innerHTML = `
-                        <span class="file-name">${title}</span>
-                        <span class="file-ext">TEXT_FILE</span>
-                    `;
-                    entry.onclick = () => loadPost(`posts/${href}`);
-                    list.appendChild(entry);
-                }
-            });
-        } catch (e) {
-            console.error("Directory scan failed.", e);
-        }
-    }
-
-    async function loadPost(path) {
-        try {
-            const response = await fetch(path);
-            const text = await response.text();
-            document.getElementById('log-list').style.display = 'none';
-            document.getElementById('post-content').style.display = 'block';
-            document.getElementById('text-target').innerText = text;
-            window.scrollTo(0,0);
-        } catch (e) {
-            console.error("Failed to load text file.", e);
-        }
-    }
-
-    function showList() {
-        document.getElementById('post-content').style.display = 'none';
-        document.getElementById('log-list').style.display = 'block';
-    }
-
-    scanDirectory();
-</script>
-
 </body>
 </html>

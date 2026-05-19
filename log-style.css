@@ -1,0 +1,83 @@
+:root {
+    --paper: #ffffff;
+    --ink: #222222;
+    --muted: #666666;
+    --rule: #dddddd;
+    --accent: #0044cc;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #fcfcfc;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+.wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 60px;
+    border: 1px solid var(--rule);
+}
+
+nav {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 10px;
+}
+
+nav a { color: var(--accent); text-decoration: none; }
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Updated for Tile Layout */
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.tile {
+    padding: 20px;
+    border: 1px solid var(--rule);
+    background: #f9f9f9;
+}
+
+.tile h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--ink);
+}
+
+.tile p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.tile a {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+footer {
+    margin-top: 40px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+}
