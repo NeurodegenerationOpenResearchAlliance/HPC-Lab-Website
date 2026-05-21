@@ -101,7 +101,7 @@
 
     <header>
         <h1>Resource Inventory</h1>
-        <p style="color: var(--muted);">Active compute nodes and network infrastructure for the HPC Dojo.</p>
+        <p style="color: var(--muted);">Compute nodes and network infrastructure.</p>
     </header>
 
     <section class="specs-section">
@@ -117,52 +117,37 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="node-id">NODE-01</td>
-                    <td>Intel Xeon E5-1650 v4<br><span class="tech-detail">128GB DDR4 ECC</span></td>
-                    <td>—</td>
-                    <td>Control Plane / Headless Ops</td>
+                    <td class="node-id">OGANESSON-A</td>
+                    <td>Intel Xeon E5-1650 v3<br><span class="tech-detail">64GB DDR4 ECC (Max 512)</span></td>
+                    <td>2x NVIDIA RTX 5060 TI OC<br><span class="tech-detail">2x 16GB VRAM</span></td>
+                    <td>Compute</td>
                 </tr>
                 <tr>
-                    <td class="node-id">NODE-02</td>
-                    <td>Intel Xeon E5-1650 v4<br><span class="tech-detail">64GB DDR4 ECC</span></td>
-                    <td>NVIDIA RTX 5080<br><span class="tech-detail">16GB VRAM</span></td>
-                    <td>Primary GROMACS Worker</td>
+                    <td class="node-id">OGANESSON-B</td>
+                    <td>Intel Xeon E5-1650 v3<br><span class="tech-detail">64GB DDR4 ECC (Max 512)</span></td>
+                    <td>2x NVIDIA RTX 5060 TI OC<br><span class="tech-detail">2x 16GB VRAM</span></td>
+                    <td>Compute</td>
                 </tr>
-                <tr>
-                    <td class="node-id">NODE-03</td>
-                    <td>Intel Xeon E5-1650 v4<br><span class="tech-detail">64GB DDR4 ECC</span></td>
-                    <td>NVIDIA RTX 5080<br><span class="tech-detail">16GB VRAM</span></td>
-                    <td>Secondary GPU Worker</td>
                 </tr>
             </tbody>
         </table>
     </section>
 
     <section class="specs-section">
-        <h2>02. Network & Storage Interconnect</h2>
+        <h2>02. Network Interface</h2>
         <table>
             <thead>
                 <tr>
                     <th>COMPONENT</th>
-                    <th>SPECIFICATION</th>
-                    <th>STATUS</th>
+                    <th>BANDWIDTH</th>
+                    <th>TOPOLOGY</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Primary Switch</td>
-                    <td>10GbE SFP+ L2 Managed</td>
-                    <td>Operational</td>
-                </tr>
-                <tr>
-                    <td>Scratch Storage</td>
-                    <td>8TB NVMe RAID-0 (Distributed)</td>
-                    <td>High-I/O Write Active</td>
-                </tr>
-                <tr>
-                    <td>Archive Storage</td>
-                    <td>TrueNAS Core / 24TB ZFS Pool</td>
-                    <td>Stable</td>
+                    <td>Mellanox MCX 555A ECAT</td>
+                    <td>100Gbe</td>
+                    <td>Point-to-Point</td>
                 </tr>
             </tbody>
         </table>

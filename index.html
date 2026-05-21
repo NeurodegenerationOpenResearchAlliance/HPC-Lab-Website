@@ -152,26 +152,29 @@
 
 <div class="wrapper">
     <nav>
-        <a href="#workloads">Cluster</a>
-        <a href="log.html">Build Log</a>
-        <a href="inventory.html">Inventory</a>
+        <a href="inventory.html">Cluster</a>
         <a href="design_philosophy.html">Philosophy</a>
+        <a href="log.html">Build Log</a>
+        <!--<a href="inventory.html">Inventory</a>-->
+        <!-- As infrastructure evolves, it may be valuable to separate the cluster page from an inventory page -->
     </nav>
 
     <header>
-        <span class="lab-name">[i really oughta name this something more specific, even though googling doesn't turn up anything with this name] High-Performance Computing Laboratory</span>
+        <span class="lab-name">High-Performance Computing Laboratory</span>
         <h1>The HPC Lab</h1>
         <p style="margin-top: 15px; color: var(--muted-ink); font-size: 1.1rem;">
             An independent environment centerned around the Oganesson Cluster for learning performance engineering on distributed infrastructure. 
         </p>
     </header>
 
-    <h2 class="section-title">Infrastructure</h2>
-    <div id="workloads" class="tile-grid">
-        <div class="tile">
-            <h3>Oganesson</h3>
-            <p>GPU cluster for benchmarking distributed accelerator workloads: two GPUs per node, two nodes, knit together with high-performance (100Gbe) networking hardware.</p>
-        </div>
+    <h2 id="workloads" class="section-title">Infrastructure</h2>
+    <div class="tile-grid">
+        <a href="inventory.html" style="text-decoration: none;">
+            <div class="tile">
+                <h3>Oganesson</h3>
+                <p>GPU cluster for benchmarking distributed accelerator workloads: two GPUs per node, two nodes, knit together with high-performance (100Gbe) networking hardware.</p>
+            </div>
+        </a>
         <!--
         <div class="tile">
             <h3>Polychoron</h3>
@@ -188,38 +191,27 @@
                 <p>Computational development of novel therapeutics for the treatment of Parkinson's disease.</p>
             </a>
         </div>
-        
+        <!--
         <div class="tile">
             <h3>Performance Engineering</h3>
             <p>How far can we go in terms of avoiding the use of Oganesson's CPU cores?</p>
         </div>
+        -->
     </div>
 
     <h2 class="section-title">Build Log Archive</h2>
     <table class="log-table">
         <tr class="log-row">
-            <td class="log-date">[need to add date]</td>
-            <td><a href="log.html#bifurcation" class="log-link">Humble Beginnings: GPU cluster hardware selection</a></td>
-        </tr>
-        <tr class="log-row">
-            <td class="log-date">[need to add date]</td>
-            <td><a href="log.html#debian" class="log-link">Hello World: UCSF Chimera-X, OS selection, and UEFI</a></td>
-        </tr>
-        <tr class="log-row">
-            <td class="log-date">[need to add date]</td>
-            <td><a href="log.html#bifurcation" class="log-link"></a>[in progress] Networking: Benchmarking Infiniband with second-rail Ethernet coordination</td>
+            <td class="log-date">2026-05-19</td>
+            <td><a href="articles/2026-05-10_hardware-selection.html" class="log-link">Design: How to Choose Hardware for Cluster v1</a></td>
         </tr>
         <tr class="log-row">
             <td class="log-date">2026-05-19</td>
-            <td><a href="articles/2026-05-10_hardware-selection.html" class="log-link">2026 05 10_Hardware Selection</a></td>
+            <td><a href="articles/2026-05-15_chimera-x-debian-setup.html" class="log-link">Hello World: OS, Drivers, and Single-Node GPU Smoketest with UCSF Chimera-X</a></td>
         </tr>
         <tr class="log-row">
             <td class="log-date">2026-05-19</td>
-            <td><a href="articles/2026-05-15_chimera-x-debian-setup.html" class="log-link">2026 05 15_Chimera X Debian Setup</a></td>
-        </tr>
-        <tr class="log-row">
-            <td class="log-date">2026-05-19</td>
-            <td><a href="articles/2026-05-19_networking-benchmarks.html" class="log-link">2026 05 19_Networking Benchmarks</a></td>
+            <td><a href="articles/2026-05-19_networking-benchmarks.html" class="log-link">Build Day! Physical Assembly</a></td>
         </tr>     
         
     </table>
