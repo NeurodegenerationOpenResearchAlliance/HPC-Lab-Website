@@ -52,7 +52,6 @@
         h2 {
             font-family: var(--font-mono);
             font-size: 0.9rem;
-            text-transform: uppercase;
             background: #f4f4f4;
             padding: 5px 10px;
             margin-bottom: 15px;
@@ -105,13 +104,21 @@
     </header>
 
     <section class="specs-section">
-        <h2>01. item1</h2>
-        <p>foobar</p>
+        <h2>01. Distribution is the goal</h2>
+        <p>Horizontal scaling over vertical scaling. </p>
+        <p>The largest compute jobs, and <a href="https://www.top500.org/">the largest computers</a> exceed the capability of single nodes. Without distribution, without clustering, we'd be separated from an important domain of architecture design.</p>
     </section>
 
     <section class="specs-section">
-        <h2>02. item2</h2>
-        <p>foobar</p>
+        <h2>02. A GPU is more important than the GPU</h2>
+        <p>Simply shifting compute off of the CPU and onto any GPU hardware produces large performance gain. We discard focus on, e.g., allocating budget to getting 5090s or H100. In 2014 I worked in an astrophysics lab. Our PI, Joel Primack, was gifted a Tesla K40m, and we used this to power our compute. This was able to handle immense workloads, and by now is dwarfed by cards at the low-end of the current generation. A GPU is fine: it doesn't need to be bleeding-edge.</p>
+    </section>
+
+    <section class="specs-section">
+        <h2>03. Energy use is in focus</h2>
+        <p>The principal, foundational resources that matter to any computing run are energy and time. It is very easy to focus exclusively on time. This cluster prioritizes keeping energy use both in mind, and prioritized.</p>
+        <p>Performance per Watt is front of mind.</p>
+        <p>When energy use is appropriately managed, time comes into focus: priority shifts to Performance per Joule, i.e., Performance / (Watt*second).</p>
     </section>
 
     <footer>
